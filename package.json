@@ -20,7 +20,15 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^8.0.0"
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3"{
+      "*.js": "eslint --cache --fix"
+      [
+        "prettier --write"
+        ,
+         "eslint --fix" 
+      ]
+    }
   },
   "repository": {
     "type": "git",
@@ -29,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/sinnee/OSS_Team3/issues"
   },
-  "homepage": "https://github.com/sinnee/OSS_Team3#readme"
+  "homepage": "https://github.com/sinnee/OSS_Team3#readme",
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
 }
