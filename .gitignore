@@ -132,3 +132,7 @@ dist
 
 # token
 token
+
+package-lock.json
+package.json
+.eslintrc.js
