@@ -1,23 +1,42 @@
-name: Check code with eslint and mocha test
+name: Feature1-test
 
-on:
-  pull_request:
-    branches: [develop]
-  
+on: 
+ push:
+  branches:
+   - Feature1
+ 
 jobs:
-  check:
-    runs-don: ubuntu-latest
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    strategy:
+      matrix:
+        node-version: [16.x]
+ 
+ 
     steps:
-      -uses:actions/checkout@v1
-      -uses:actions/setup-node@v3
-       with:
-        node-version: "16"
-        check-latest: true
-      -name:Check
-       run:
-        npm ci
-        npm run lint-diff
+    - uses: actions/checkout@v3
+    
+      
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: npm install, build, and test
+      run: |
+        npm install -g mocha
+        npm install 
+        
       env:
         CI: true
-        BASE: ${{github.base_ref}}
-        HEAD: ${{github.head_ref}}
+
+      
+      
+    - name: testing bot
+            
+      env:
+       CI: true
+      run: |
+        mocha infoDeptOffice.spec.js
