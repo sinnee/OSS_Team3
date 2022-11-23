@@ -3,7 +3,7 @@ name: Feature1-test
 on: 
  push:
   branches:
-   - Feature1
+   - develop
  
 jobs:
   build:
