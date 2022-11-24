@@ -1,3 +1,7 @@
+/* eslint-disable no-undef */
+/* eslint-disable global-require */
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
 const infoDeptOffice = function (rtm, text, channel) {
   const fs = require('fs');
   const data = fs.readFileSync('./dept.txt').toString().split('\n');
