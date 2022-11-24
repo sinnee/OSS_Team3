@@ -16,21 +16,16 @@ const rtm = new RTMClient(token);
 rtm.start();
 
 const greeting = require('./greeting');
-const square = require('./square');
 
 rtm.on('message', (message) => {
   const { channel } = message;
   const { text } = message;
 
-  if (!isNaN(text)) {
-    square(rtm, text, channel);
-  } else {
-    switch (text) {
-      case 'hi':
-        greeting(rtm, channel);
-        break;
-      default:
-        rtm.sendMessage('I`m alive', channel);
-    }
+  switch (text) {
+    case 'hi':
+      greeting(rtm, channel);
+      break;
+    default:
+      rtm.sendMessage('I`m alive', channel);
   }
 });
