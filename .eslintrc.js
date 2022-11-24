@@ -23,3 +23,4 @@ module.exports = {
     'no-return-assign': 'off',
   },
 };
+
