@@ -21,5 +21,8 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'global-require': 'off',
     'no-return-assign': 'off',
+    'vars-on-top': 'off',
+    'no-var': 'off',
+    'Invalid number': 'off',
   },
 };
