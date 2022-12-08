@@ -1,41 +1,61 @@
+const { debug } = require('console')
 const fs = require('fs')
 const { start } = require('repl')
-var date = new Array()
-var content = new Array()
+
 
 
 var scheduleData
+let resultStr = ""
+global.resultStr = resultStr
+
+let test
 
 
 
 
-const schedule = function(string1, rtm, channel) {
-    fs.readFile('./haksa.txt', 'utf8', (err, data) => {
+const schedule = function(string1) {
+    
 
+    
+   readData(string1, function(resultStr)   {
+    
+   })
+    
+   return resultStr;        
+    
+    
+}
 
-        if (err) {
-            console.error(err)
-            return
-        }
+//check
+function readData(string1 ,callback) {
+
+    var date = new Array()
+    var content = new Array()
+    resultStr = ""
+   
+    var isHaveSchedule = false
+    var data = fs.readFileSync('./haksa.txt', 'utf8');
+
+        
         splitedData = data.split('\n')
-
+        
         var isPeriod = false
-
-
+    
+    
         for (var i = 0; i < splitedData.length; i++) {
             var pos = splitedData[i].indexOf(':')
-
+    
             var tempSplitedData = splitedData[i].split(':')
-
+    
             if (tempSplitedData[0].indexOf('-') != -1) {
-
+    
                 splitedPeriod = tempSplitedData[0].split('-')
-
+    
                 var startDate = invertDataFormat(splitedPeriod[0])
                 var endDate = invertDataFormat(splitedPeriod[1])
-
+    
                 var diffDate = ((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
-
+    
                 tempDate = startDate
                 tempDate.setDate(tempDate.getDate() - 1)
                 for (var j = 0; j <= diffDate; j++) {
@@ -45,41 +65,47 @@ const schedule = function(string1, rtm, channel) {
                 }
             }
             else {
+                
                 tempSplitedData[0] = tempSplitedData[0].substring(0, tempSplitedData[0].length - 1)
                 date.push(tempSplitedData[0])
+                
                 content.push(tempSplitedData[1])
             }
-
-
+    
+    
+        }
+        var tempStr = new Array
+    
+    
+        for (var i = 0; i < date.length; i++) {
+            
+            if (date[i] == string1) {
+                    
+                tempStr.push(content[i])
+                isHaveSchedule = true
+            } 
+           
+        }
+    
+        
+        
+        for (var i = 0; i < tempStr.length; i++) {
+            
+            resultStr = resultStr + tempStr[i] +"\n"
+            
+            
         }
 
+        if(!isHaveSchedule)
+            resultStr = "등록된 일정이 없습니다."
+        
+        callback(resultStr);
+        
+        
+   
 
-
-    })
-
-
-    var tempStr = new Array
-    let resultStr = ""
-    for (var i = 0; i < date.length; i++) {
-
-        if (date[i] == string1) {
-
-            tempStr.push(content[i])
-            
-        } 
-       
-    }
 
     
-    
-    for (var i = 0; i < tempStr.length; i++) {
-        resultStr = resultStr + tempStr[i] +"\n"
-    }
-    console.log(resultStr)
-    
-    //rtm.sendMessage(tempStr, channel);
-
-    return resultStr;
 }
 
 function invertDataFormat(string) {
@@ -94,8 +120,6 @@ function invertDataFormat(string) {
     return date
 
 }
-
-
 
 
 module.exports = schedule;
