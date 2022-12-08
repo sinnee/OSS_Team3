@@ -30,7 +30,6 @@ describe('테스트를 시작합니다.', async () => {
   before(async () => res = await infoDeptOffice(rtm, 'Computer Science and Engineering', channel));
 
   it('학과 사무실 안내 모듈 테스트', (done) => {
-    console.log(res);
     assert.equal(res, 'College of Engineering Building 7, 224\r');
     done();
   });
