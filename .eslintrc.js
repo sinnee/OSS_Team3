@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 module.exports = {
   env: {
     browser: true,
@@ -19,5 +20,6 @@ module.exports = {
     'vars-on-top': 'off',
     'no-var': 'off',
     'Invalid number': 'off',
+    'linebreak-style': 0,
   },
 };
