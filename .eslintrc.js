@@ -19,5 +19,6 @@ module.exports = {
     'vars-on-top': 'off',
     'no-var': 'off',
     'Invalid number': 'off',
+    'consistent-return': 'off',
   },
 };
