@@ -49,6 +49,7 @@ rtm.on('message', (message) => {
           status = 2;
           break;
         case '종료':
+          rtm.sendMessage('챗봇을 종료합니다.', channel);
           process.exit(1);
       }
       break;
