@@ -1,4 +1,3 @@
-const levenshtein = require('js-levenshtein')
 const infoDeptOffice = function (rtm, text, channel) {
   var tempSimilarity = 9999;
   var mostSimilarDeptName = "";
