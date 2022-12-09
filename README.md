@@ -19,18 +19,49 @@
 ### 2. 전북대 학사일정 안내
   + 사용자의 '학사일정'에 반응
   + 안내 받을 날짜 입력시 그 날의 학사일정을 안내
-  + 단 날짜 양식을 맞게 입력해야 응답(예. 12/전21)
+  + 단 날짜 양식을 맞게 입력해야 응답(예. 12/21)
 
-### 3. 오늘의 메뉴 안내 및 평가
+### 3.1 오늘의 메뉴 안내 및 평가
   + 사용자의 '오늘 밥 뭐야'에 반응
   + 오늘의 진수원 중식 식단 안내
   + 3단계로 진수원 식단 평가
   + 단 주말은 제외
+### 3.2 주간 메뉴 안내
+  + 사용자의 '이번주 뭐 나와'에 반응
+  + 3단계로 진수원 주중 중식 평가
   
 ### 4. 학과 사무실 안내 - infoDeptOffice
   + 사용자의 '학과이름'에 반응
   + 해당 학과의 학과 사무실 위치 안내
+  + 대/소문자 띄어쓰기 구분 없음
+  + 잘못된 학과입력 시 가장 유사한 학과 정보 안내(levenshtein distance 기반)
   
+----------------------
+## [github 관리]
+
+### 1. 브랜치 관리 전략
+ #### 1) main  
+  + lock branch, require approvals 2인 (본인 제외)
+ #### 2) develop
+  + lock branch, require approvals 1인 (대부분의 코드 리뷰는 성신, 성신 pr시 유하 코드리뷰)
+ #### 3) release 
+  + lock branch, require approvals 2인 (유하, 성신)
+ #### 4) hotfix
+  + main, release에서 분기
+  + 긴급 버그 수정 브랜치
+  + lock branch, require approvals 2인 (유하, 성신)
+ #### 5) feature 
+  + develop에서 분기 
+  + 각 기능 개발시 기능을 알 수 있게 브랜치명에 표시(ex. feature_greeting)
+  + 다른 보안을 걸지 않음
+
+### 2. project - 간트차트
+ + 개발 일정 관리를 위해 사용 
+ + 해당 할일 개발자, 진행 현황 등을 표시
+ + issue 관리를 간트차트에서 동시 진행
+ + 해당 할일, issue 완료시 issue를 닫고 할일을 done으로 표기
+ ![image](https://user-images.githubusercontent.com/77494780/206628445-dd43e15c-1947-4b8c-ad0f-722b680d6366.png)
+
 -----------------------
 ## [전북대bot 코드규칙]
 
@@ -61,6 +92,9 @@
   + 참조 : https://luniverse.io/2021/05/12/simple-git-hooks/?lang=ko
 
 ### 3. unit test
+  + 각 기능별 unit test 진행
+  + mocha test 로 진행
+  + github action 을 통해 dev branch에 pr시 mocha 자동 수행
 
 ### 4. integrated test
  
