@@ -10,7 +10,7 @@ const infoMenu = function (rtm, channel) {
     const current = $(l).find('td > ul').get(week);
 
     for (const v of $(current).find('li')) {
-      if ($(v).text() !== '') {
+      if ($(v).text() !== '' && $(v).text() !== '\n') {
         res.push($(v).text());
       }
     }
@@ -24,12 +24,18 @@ const infoMenu = function (rtm, channel) {
   const now = new Date();
   const week = now.getDay() - 1;
   if (week === -1 || week === 5) {
-    return rtm.sendMessage('주말에는 운영하지 않습니다', channel);
+    rtm.sendMessage('주말에는 운영하지 않습니다', channel);
+    return Promise.resolve('success');
   }
   webScraping(url, week, selector).then((res) => {
     console.log(res);
     console.log(typeof (JSON.stringify(res)));
-    return rtm.sendMessage(JSON.stringify(res), channel);
+    var ret = JSON.stringify(res);
+    ret = ret.replace(/\\n/g, '');
+    console.log(ret);
+    console.log(typeof (ret));
+    rtm.sendMessage(ret, channel);
+    return Promise.resolve('success');
   });
 };
 
