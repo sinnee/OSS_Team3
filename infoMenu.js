@@ -16,10 +16,10 @@ const infoMenu = function (rtm, channel) {
       }
     }
     console.log(res);
-    
+
     return res;
   }
-  
+
   const url = 'https://sobi.chonbuk.ac.kr/menu/week_menu.php';
   const selector = 'table.tblType03 > tbody > tr';
   const now = new Date();
@@ -35,7 +35,7 @@ const infoMenu = function (rtm, channel) {
     ret = ret.replace(/\\n/g, '');
     console.log(ret);
     console.log(typeof (ret));
-    ret += " " + menuCalu(ret) + "점"
+    ret += ` ${menuCalu(ret)}점`;
     rtm.sendMessage(ret, channel);
     return Promise.resolve('success');
   });
