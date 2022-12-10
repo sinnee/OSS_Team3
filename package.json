@@ -1,3 +1,4 @@
+{
   "name": "chtbot_tutorial",
   "version": "1.0.0",
   "description": "chatbot_tutorial",
@@ -19,7 +20,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "eslint": "^8.26.0",
+    "eslint": "^8.29.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
@@ -33,20 +34,6 @@
       "eslint --fix"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/sinnee/OSS_Team3.git"
-  },
-  "bugs": {
-    "url": "https://github.com/sinnee/OSS_Team3/issues"
-  },
-  "homepage": "https://github.com/sinnee/OSS_Team3#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  }
-}
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/sinnee/OSS_Team3.git"
