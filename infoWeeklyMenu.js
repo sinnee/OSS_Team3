@@ -42,6 +42,7 @@ const infoWeeklyMenu = function (rtm, channel) {
     rtm.sendMessage(ret, channel);
     return Promise.resolve('success');
   });
+  return Promise.resolve('success');
 };
 
 module.exports = infoWeeklyMenu;
