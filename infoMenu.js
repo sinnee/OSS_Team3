@@ -1,6 +1,7 @@
 const infoMenu = function (rtm, channel) {
   const axios = require('axios');
   const cheerio = require('cheerio');
+  const menuCalu = require('./menuCalu');
 
   async function webScraping(url, week, selector) {
     const res = [];
@@ -15,13 +16,12 @@ const infoMenu = function (rtm, channel) {
       }
     }
     console.log(res);
-
     return res;
   }
 
   const url = 'https://sobi.chonbuk.ac.kr/menu/week_menu.php';
   const selector = 'table.tblType03 > tbody > tr';
-  const now = new Date();
+  const now = new Date(2022,12,09);
   const week = now.getDay() - 1;
   if (week === -1 || week === 5) {
     rtm.sendMessage('주말에는 운영하지 않습니다', channel);
@@ -34,6 +34,7 @@ const infoMenu = function (rtm, channel) {
     ret = ret.replace(/\\n/g, '');
     console.log(ret);
     console.log(typeof (ret));
+    ret += " " + menuCalu(ret) + "점"
     rtm.sendMessage(ret, channel);
     return Promise.resolve('success');
   });

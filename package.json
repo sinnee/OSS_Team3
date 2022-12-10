@@ -1,4 +1,5 @@
-  "name": "chtbot_tutorial",
+ {
+ "name": "chtbot_tutorial",
   "version": "1.0.0",
   "description": "chatbot_tutorial",
   "main": "index.js",
@@ -45,8 +46,7 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
-}
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/sinnee/OSS_Team3.git"
