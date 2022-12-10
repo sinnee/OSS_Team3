@@ -1,5 +1,5 @@
-{
-  "name": "chtbot_tutorial",
+ {
+ "name": "chtbot_tutorial",
   "version": "1.0.0",
   "description": "chatbot_tutorial",
   "main": "index.js",
@@ -33,6 +33,19 @@
     "*.js": [
       "eslint --fix"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sinnee/OSS_Team3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sinnee/OSS_Team3/issues"
+  },
+  "homepage": "https://github.com/sinnee/OSS_Team3#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",
