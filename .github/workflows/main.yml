@@ -40,3 +40,4 @@ jobs:
        CI: true
       run: |
         mocha infoDeptOffice.spec.js
+        mocha greeting.spec.js
