@@ -26,7 +26,6 @@ let res;
 
 describe('테스트를 시작합니다.', async () => {
   before(async () => res = await infoMenu(rtm, channel));
-
   it('금일 메뉴 알림 테스트', (done) => {
     assert.equal(res, 'success');
     done();

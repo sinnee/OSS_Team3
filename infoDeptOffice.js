@@ -1,9 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable prefer-destructuring */
 const infoDeptOffice = function (rtm, text, channel) {
   var tempSimilarity = 9999;
   var mostSimilarDeptName = '';
   var mostSimilarDeptPos = '';
   const fs = require('fs');
+  const levenshtein = require('js-levenshtein');
   const data = fs.readFileSync('./dept.txt').toString().split('\n');
   const TextV = text.replace(/(\s*)/g, '').toLowerCase();
   console.log(text);

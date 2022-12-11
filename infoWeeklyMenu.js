@@ -35,7 +35,8 @@ const infoWeeklyMenu = function (rtm, channel) {
   webScraping(url, selector).then((res) => {
     console.log(res);
     console.log(typeof (JSON.stringify(res)));
-    var ret = JSON.stringify(res);
+    var ret = '주간 식단\n';
+    ret += JSON.stringify(res);
     ret = ret.replace(/\\n/g, '');
     console.log(ret);
     console.log(typeof (ret));

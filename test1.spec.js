@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-plusplus */
 /* eslint-disable camelcase */
@@ -27,21 +28,17 @@ const rtm = new RTMClient(token);
 rtm.start();
 
 rtm.on('ready', async () => {
-  const rdy1 = await rtm.sendMessage('테스트 시작', test_channel);
+  const rdy1 = await rtm.sendMessage('1차 테스트 시작', test_channel);
   console.log('=============');
   console.log('통합테스트시작');
-  console.log('=======greeting======');
+  console.log('greeting test');
   const rdy2 = await rtm.sendMessage('Hi', test_channel);
-  status++;
 });
 
 rtm.on('message', async (message) => {
   var { text } = message;
-
-  console.log('받은메세지 : ', text);
-
   switch (status) {
-    case 1:
+    case 0:
     {
       if (text == 'Hello!' || text == 'Hi!' || text == 'What`s up!') {
         console.log('greeting test 성공');
@@ -53,34 +50,35 @@ rtm.on('message', async (message) => {
       status++;
       break;
     }
-    case 2:
-    {
-      console.log('======학사일정=======');
+    case 1: {
+      console.log(text);
       const rdy3 = await rtm.sendMessage('학사일정', test_channel);
       status++;
       break;
     }
-    case 3:
-    {
-      console.log('받은 메세지 : ', text);
+    case 2: {
+      console.log('==============');
       if (text == '원하시는 날짜를 입력하세요.') {
         const rdy4 = await rtm.sendMessage('12/21', test_channel);
         status++;
       } else {
-        console.log('schedule test 실패');
+        console.log('현재 메세지 : ', text);
         process.exit(1);
       }
       break;
     }
-    case 4:
-    {
-      if (text == '종강') {
-        console.log('schedule test 성공');
-        process.exit(1);
-      } else {
-        console.log('schedule test 실패');
-        process.exit(1);
-      }
+    case 3: {
+      console.log('메세지1 : ', text);
+      const rdy4 = await rtm.send();
+      console.log('메세지2 : ', text);
+      status++;
+      break;
+    }
+    case 4: {
+      console.log('메세지3 : ', text);
+      status++;
+      const rdy4 = await rtm.sendMessage('종료', test_channel);
+      process.exit(1);
     }
   }
 });
