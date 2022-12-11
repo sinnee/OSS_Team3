@@ -1,17 +1,15 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-return-assign */
 require('dotenv').config();
 const { RTMClient } = require('@slack/rtm-api');
 const fs = require('fs');
 
 const channel = 'D04BB08UHN2';
 const assert = require('assert');
-const infoDeptOffice = require('./infoDeptOffice');
+const infoWeeklyMenu = require('../infoWeeklyMenu');
 
 let token;
 
 try {
-  token = fs.readFileSync('./test_token').toString('utf-8');
+  token = fs.readFileSync('../test_token').toString('utf-8');
 } catch (err) {
   console.error(err);
 }
@@ -27,10 +25,10 @@ const rtm = new RTMClient(token);
 let res;
 
 describe('테스트를 시작합니다.', async () => {
-  before(async () => res = await infoDeptOffice(rtm, 'Computer Science and Engineering', channel));
+  before(async () => res = await infoWeeklyMenu(rtm, channel));
 
-  it('학과 사무실 안내 모듈 테스트', (done) => {
-    assert.equal(res, 'College of Engineering Building 7, 224\r');
+  it('주간 메뉴 알림 테스트', (done) => {
+    assert.equal(res, 'success');
     done();
   });
 });

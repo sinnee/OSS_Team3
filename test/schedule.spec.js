@@ -2,7 +2,7 @@
 require('dotenv').config();
 const assert = require('assert');
 
-const schedule = require('./schedule.js');
+const schedule = require('../schedule.js');
 
 describe('schedule', () => {
   describe('findSchedule', () => {
