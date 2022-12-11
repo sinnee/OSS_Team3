@@ -66,7 +66,7 @@ rtm.on('message', (message) => {
       break;
     case 2:
       schedule(rtm, text, channel);
-      rtm.sendMessage(schedule(text),channel);
+      rtm.sendMessage(schedule(text), channel);
       status = 0;
       rtm.sendMessage("더 하실 명령이 있으신가요?\n1. 인사를 원하시면 'Hi'\n2. 학사 일정을 원하시면 '학사일정'\n3. 오늘의 메뉴 안내를 원하시면 '오늘 밥 뭐야'\n4.이번주의 메뉴를 원하시면 '이번주 뭐나와'\n5. 학과 사무실 안내를 원하시면 '학과 사무실 안내'\n6. 종료를 원하시면 '종료'를 입력하세요", channel);
       break;

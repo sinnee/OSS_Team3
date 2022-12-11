@@ -1,10 +1,12 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-return-assign */
 require('dotenv').config();
 const { RTMClient } = require('@slack/rtm-api');
 const fs = require('fs');
 
 const channel = 'D04BB08UHN2';
 const assert = require('assert');
-const infoMenu = require('./infoMenu');
+const infoDeptOffice = require('./infoDeptOffice');
 
 let token;
 
@@ -25,9 +27,10 @@ const rtm = new RTMClient(token);
 let res;
 
 describe('테스트를 시작합니다.', async () => {
-  before(async () => res = await infoMenu(rtm, channel));
-  it('금일 메뉴 알림 테스트', (done) => {
-    assert.equal(res, 'success');
+  before(async () => res = await infoDeptOffice(rtm, 'Computer Science and Engineering', channel));
+
+  it('학과 사무실 안내 모듈 테스트', (done) => {
+    assert.equal(res, 'College of Engineering Building 7, 224\r');
     done();
   });
 });
