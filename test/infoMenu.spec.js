@@ -4,12 +4,12 @@ const fs = require('fs');
 
 const channel = 'D04BB08UHN2';
 const assert = require('assert');
-const infoMenu = require('./infoMenu');
+const infoMenu = require('../infoMenu');
 
 let token;
 
 try {
-  token = fs.readFileSync('./test_token').toString('utf-8');
+  token = fs.readFileSync('../test_token').toString('utf-8');
 } catch (err) {
   console.error(err);
 }

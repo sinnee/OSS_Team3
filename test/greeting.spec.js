@@ -10,7 +10,7 @@ const channel = 'D047E2WCP7X';
 let token;
 
 try {
-  token = fs.readFileSync('./token').toString('utf-8');
+  token = fs.readFileSync('../token').toString('utf-8');
 } catch (err) {
   console.error(err);
 }
@@ -24,7 +24,7 @@ const rtm = new RTMClient(token);
     .catch(console.error);
 })();
 
-const greeting = require('./greeting');
+const greeting = require('../greeting');
 
 let res;
 
