@@ -1,12 +1,7 @@
-<<<<<<< Updated upstream
 /* eslint-disable no-undef */
 /* eslint-disable global-require */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
-=======
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable prefer-destructuring */
->>>>>>> Stashed changes
 const infoDeptOffice = function (rtm, text, channel) {
   const fs = require('fs');
   const levenshtein = require('js-levenshtein');
