@@ -22,5 +22,7 @@ module.exports = {
     'Invalid number': 'off',
     'consistent-return': 'off',
     'linebreak-style': 0,
+    'max-len': 'off',
+    'prefer-destructuring': 'off',
   },
 };
