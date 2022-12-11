@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 const infoWeeklyMenu = function (rtm, channel) {
   const axios = require('axios');
   const cheerio = require('cheerio');
@@ -20,10 +21,9 @@ const infoWeeklyMenu = function (rtm, channel) {
       week += 1;
     }
     console.log(res[2][0] + res.length);
-    for(let i = 0; i<res.length; i++)
-    {
-      res[i][0] += " " + menuCalu(res[i][0])+"점"
-      console.log("실행함")
+    for (let i = 0; i < res.length; i++) {
+      res[i][0] += ` ${menuCalu(res[i][0])}점`;
+      console.log('실행함');
     }
     console.log(res);
     return res;
@@ -35,7 +35,8 @@ const infoWeeklyMenu = function (rtm, channel) {
   webScraping(url, selector).then((res) => {
     console.log(res);
     console.log(typeof (JSON.stringify(res)));
-    var ret = JSON.stringify(res);
+    var ret = '주간 식단\n';
+    ret += JSON.stringify(res);
     ret = ret.replace(/\\n/g, '');
     console.log(ret);
     console.log(typeof (ret));
