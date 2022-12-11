@@ -8,7 +8,6 @@ const infoDeptOffice = function (rtm, text, channel) {
   const levenshtein = require('js-levenshtein');
   const data = fs.readFileSync('./dept.txt').toString().split('\n');
   const TextV = text.replace(/(\s*)/g, '').toLowerCase();
-  const levenshtein = require('js-levenshtein');
   console.log(text);
   for (i in data) {
     const str = data[i].split(' - ');
